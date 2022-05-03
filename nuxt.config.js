@@ -1,11 +1,10 @@
-const isProduction = process.env.NODE_ENV === 'production';
+import { resolve } from 'path'
 
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: true,
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Fillsen site',
@@ -72,6 +71,17 @@ export default {
       chunk: ({ isDev }) => (isDev ? '[name].js' : '[name].js?h=[contenthash]'),
       font: '[name].[ext]',
     },
+  },
+
+  // Creating aliases for fast access (https://nuxtjs.org/docs/configuration-glossary/configuration-alias)
+  alias: {
+    'images': resolve(__dirname, './assets/images'),
+    'styles': resolve(__dirname, './assets/styles'),
+    'components': resolve(__dirname, './components'),
+    'helpers': resolve(__dirname, './helpers'),
+    'mixins': resolve(__dirname, './mixins'),
+    'pages': resolve(__dirname, './pages'),
+    'store': resolve(__dirname, './store'),
   },
 
   env: {
