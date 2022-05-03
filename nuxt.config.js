@@ -1,4 +1,4 @@
-import { resolve } from 'path'
+import { resolve } from 'path';
 
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
@@ -9,33 +9,44 @@ export default {
   head: {
     title: 'Fillsen site',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1',
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: '',
+      },
+      {
+        name: 'format-detection',
+        content: 'telephone=no',
+      },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: ['~/assets/styles/reset/normalize.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-  ],
+  buildModules: ['@nuxtjs/style-resources'],
 
   styleResources: {
     /* Do not import actual styles. Use this module only to import variables,
@@ -44,11 +55,12 @@ export default {
 		will also make your build/HMR magnitudes slower. Do not do this!
      */
     scss: [
-      '~/assets/styles/vars/_colors.scss',
-      '~/assets/styles/vars/_fonts.scss',
-      '~/assets/styles/vars/_screens.scss',
-      '~/assets/styles/vars/_text.scss',
+      '~/assets/styles/vars/*.scss',
+      // '~/assets/styles/vars/_fonts.scss',
+      // '~/assets/styles/vars/_screens.scss',
+      // '~/assets/styles/vars/_text.scss',
     ],
+    hoistUseStatements: true,
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -59,22 +71,28 @@ export default {
       {
         strategy: 'prefix',
         locales: [
-          { code: 'ru', iso: 'ru-RU', file: 'en-US.json' },
-          { code: 'en', iso: 'en-US', file: 'ru-RU.json' },
+          {
+            code: 'ru',
+            iso: 'ru-RU',
+            file: 'en-US.json',
+          },
+          {
+            code: 'en',
+            iso: 'en-US',
+            file: 'ru-RU.json',
+          },
         ],
         defaultLocale: 'ru',
         vueI18n: {
           fallbackLocale: 'ru',
-        }
-      }
-    ]
+        },
+      },
+    ],
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL:
-      process.env.BASE_URL ||
-      '',
+    baseURL: process.env.BASE_URL || '',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -99,6 +117,6 @@ export default {
   },
 
   env: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000'
+    baseURL: process.env.BASE_URL || 'http://localhost:3000',
   },
-}
+};
