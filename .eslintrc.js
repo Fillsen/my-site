@@ -4,7 +4,11 @@ module.exports = {
     es6: true,
   },
   parser: 'vue-eslint-parser',
-  extends: ['plugin:vue/recommended', 'plugin:nuxt/recommended'],
+  extends: [
+    'plugin:vue/recommended',
+    'plugin:nuxt/recommended',
+    'plugin:prettier/recommended',
+  ],
   globals: {
     $nuxt: true,
   },
