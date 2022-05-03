@@ -1,13 +1,14 @@
-  module.exports = {
+module.exports = {
   env: {
     browser: true,
     es6: true,
   },
   parser: 'vue-eslint-parser',
   extends: [
-      'airbnb-base',
-      'plugin:vue/recommended',
-      'plugin:nuxt/recommended',
+    'airbnb-base',
+    'plugin:vue/recommended',
+    'plugin:nuxt/recommended',
+    'plugin:prettier/recommended',
   ],
   globals: {
     $nuxt: true,
@@ -22,7 +23,7 @@
     'camelcase': 'off',
     'max-len': 'off',
     'no-underscore-dangle': [
-        'error',
+      'error',
       {
         allow: [],
         allowAfterThis: true,
@@ -36,8 +37,8 @@
     'import/no-extraneous-dependencies': 'off',
     'vue/attribute-hyphenation': 'off',
     'vue/script-indent': [
-        'error',
-        2,
+      'error',
+      2,
       {
         baseIndent: 1,
         ignores: [':expression'],
@@ -45,8 +46,8 @@
     ],
     'vue/html-self-closing': 'off',
     'vue/html-indent': [
-        'error',
-        2,
+      'error',
+      2,
       {
         attribute: 1,
         baseIndent: 1,
@@ -77,4 +78,4 @@
   parserOptions: {
     'ecmaVersion': 2020,
   },
-  };
+};
