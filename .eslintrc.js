@@ -3,13 +3,8 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  parser: '@babel/eslint-parser',
-  extends: [
-    'airbnb-base',
-    'plugin:vue/recommended',
-    'plugin:nuxt/recommended',
-    'plugin:prettier/recommended',
-  ],
+  parser: 'vue-eslint-parser',
+  extends: ['plugin:vue/recommended', 'plugin:nuxt/recommended'],
   globals: {
     $nuxt: true,
   },
