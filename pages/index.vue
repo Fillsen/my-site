@@ -4,6 +4,7 @@
 
 <script>
   export default {
+    name: 'MainPage',
     data() {
       return {
         creatorRoles: {},
