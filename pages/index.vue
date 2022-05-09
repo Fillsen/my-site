@@ -1,5 +1,10 @@
 <template>
-  <div>{{ creatorRoles.count }}</div>
+  <div>
+    {{ creatorRoles.count }}
+    <div v-for="role in creatorRoles.results" :key="role.id">
+      {{ role.name }}
+    </div>
+  </div>
 </template>
 
 <script>
@@ -15,10 +20,10 @@
       };
     },
     async fetch() {
-      await this.getCreatorRoles();
+      await this.getRoles();
     },
     methods: {
-      async getCreatorRoles() {
+      async getRoles() {
         try {
           this.isLoading = true;
           const params = {
