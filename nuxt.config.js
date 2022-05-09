@@ -40,7 +40,7 @@ export default {
   css: ['~/assets/styles/reset/normalize.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/axios'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -95,6 +95,25 @@ export default {
     baseURL: process.env.BASE_URL || '',
   },
 
+  privateRuntimeConfig: {
+    apiSecretKey: process.env.API_SECRET_KEY,
+  },
+
+  // Creating aliases for fast access (https://nuxtjs.org/docs/configuration-glossary/configuration-alias)
+  alias: {
+    'assets': resolve(__dirname, './assets'),
+    'components': resolve(__dirname, './components'),
+    'helpers': resolve(__dirname, './helpers'),
+    'mixins': resolve(__dirname, './mixins'),
+    'pages': resolve(__dirname, './pages'),
+    'store': resolve(__dirname, './store'),
+    'api': resolve(__dirname, './api'),
+  },
+
+  env: {
+    baseURL: process.env.BASE_URL || 'http://localhost:3000',
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     publicPath: process.env.PUBLIC_PATH,
@@ -103,20 +122,5 @@ export default {
       chunk: ({ isDev }) => (isDev ? '[name].js' : '[name].js?h=[contenthash]'),
       font: '[name].[ext]',
     },
-  },
-
-  // Creating aliases for fast access (https://nuxtjs.org/docs/configuration-glossary/configuration-alias)
-  alias: {
-    'images': resolve(__dirname, './assets/images'),
-    'styles': resolve(__dirname, './assets/styles'),
-    'components': resolve(__dirname, './components'),
-    'helpers': resolve(__dirname, './helpers'),
-    'mixins': resolve(__dirname, './mixins'),
-    'pages': resolve(__dirname, './pages'),
-    'store': resolve(__dirname, './store'),
-  },
-
-  env: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000',
   },
 };
