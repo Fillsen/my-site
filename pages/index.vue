@@ -1,9 +1,31 @@
 <template>
-  <div>Test</div>
+  <div>{{ creatorRoles.count }}</div>
 </template>
 
 <script>
   export default {
-    name: 'IndexPage',
+    data() {
+      return {
+        creatorRoles: {},
+        isLoading: false,
+        isError: false,
+      };
+    },
+    async fetch() {
+      await this.getTest();
+    },
+    methods: {
+      async getTest() {
+        try {
+          this.isLoading = true;
+          this.creatorRoles = await this.$api.$get('/creator-roles');
+        } catch (err) {
+          this.isError = true;
+          throw new Error(err);
+        } finally {
+          this.isLoading = false;
+        }
+      },
+    },
   };
 </script>
