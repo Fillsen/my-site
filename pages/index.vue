@@ -3,6 +3,8 @@
 </template>
 
 <script>
+  import RolesService from 'api/services/RolesService';
+
   export default {
     name: 'MainPage',
     data() {
@@ -19,7 +21,12 @@
       async getCreatorRoles() {
         try {
           this.isLoading = true;
-          this.creatorRoles = await this.$api.$get('/creator-roles');
+          const params = {
+            page: 1,
+            page_size: 10,
+          };
+          const api = new RolesService(this.$axios);
+          this.creatorRoles = await api.getCreatorRoles(params);
         } catch (err) {
           this.isError = true;
           throw new Error(err);
