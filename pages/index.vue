@@ -12,10 +12,10 @@
       };
     },
     async fetch() {
-      await this.getTest();
+      await this.getCreatorRoles();
     },
     methods: {
-      async getTest() {
+      async getCreatorRoles() {
         try {
           this.isLoading = true;
           this.creatorRoles = await this.$api.$get('/creator-roles');
